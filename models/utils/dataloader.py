@@ -1,11 +1,16 @@
+import re
+
 class DataLoader:
     def __init__(self):
-        self.sents = [
-	"Máy bay nào đến thành phố Huế luc 13:30HR ?.",
-		
-        ]
+        self.sents = []
         self.curr_idx = 0
     
+    def load(self, filepath):
+        with open(filepath) as file:
+            for line in file:
+                line = re.sub("\n", "", line)
+                self.sents.append(line)
+
     def __len__(self):
         return len(self.sents)
 
