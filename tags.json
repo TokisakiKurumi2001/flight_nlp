@@ -1,0 +1,344 @@
+[
+    {
+        "text": "Máy_bay",
+        "tag": "FLIGHT-N"
+    },
+    {
+        "text": "nào",
+        "tag": "WH-QDET"
+    },
+    {
+        "text": "bay",
+        "tag": "FLIGHT-V"
+    },
+    {
+        "text": "đến",
+        "tag": "ARRIVE-P"
+    },
+    {
+        "text": "Huế",
+        "tag": "CITYNAME-N"
+    },
+    {
+        "text": "lúc",
+        "tag": "TIME-P"
+    },
+    {
+        "text": "13:30HR",
+        "tag": "TIME-NUM"
+    },
+    {
+        "text": "?",
+        "tag": "Q-PUNCT"
+    }
+]
+[
+    {
+        "text": "Máy_bay",
+        "tag": "FLIGHT-N"
+    },
+    {
+        "text": "nào",
+        "tag": "WH-QDET"
+    },
+    {
+        "text": "bay",
+        "tag": "FLIGHT-V"
+    },
+    {
+        "text": "từ",
+        "tag": "DEPART-P"
+    },
+    {
+        "text": "Đà_Nẵng",
+        "tag": "CITYNAME-N"
+    },
+    {
+        "text": "đến",
+        "tag": "ARRIVE-P"
+    },
+    {
+        "text": "Hồ_Chí_Minh",
+        "tag": "CITYNAME-N"
+    },
+    {
+        "text": "mất",
+        "tag": "LAST-V"
+    },
+    {
+        "text": "1",
+        "tag": "TIME-NUM"
+    },
+    {
+        "text": "giờ",
+        "tag": "TIME-N"
+    },
+    {
+        "text": "?",
+        "tag": "Q-PUNCT"
+    }
+]
+[
+    {
+        "text": "cho_biết",
+        "tag": "WH-QDET"
+    },
+    {
+        "text": "máy_bay",
+        "tag": "FLIGHT-N"
+    },
+    {
+        "text": "bay",
+        "tag": "FLIGHT-V"
+    },
+    {
+        "text": "đến",
+        "tag": "ARRIVE-P"
+    },
+    {
+        "text": "Huế",
+        "tag": "CITYNAME-N"
+    },
+    {
+        "text": "?",
+        "tag": "Q-PUNCT"
+    }
+]
+[
+    {
+        "text": "Máy_bay",
+        "tag": "FLIGHT-N"
+    },
+    {
+        "text": "nào",
+        "tag": "WH-QDET"
+    },
+    {
+        "text": "bay",
+        "tag": "FLIGHT-V"
+    },
+    {
+        "text": "từ",
+        "tag": "DEPART-P"
+    },
+    {
+        "text": "Hồ_Chí_Minh",
+        "tag": "CITYNAME-N"
+    },
+    {
+        "text": ",",
+        "tag": "C-PUNCT"
+    },
+    {
+        "text": "lúc",
+        "tag": "TIME-P"
+    },
+    {
+        "text": "mấy",
+        "tag": "WH-QDET"
+    },
+    {
+        "text": "giờ",
+        "tag": "TIME-N"
+    },
+    {
+        "text": "?",
+        "tag": "Q-PUNCT"
+    }
+]
+[
+    {
+        "text": "Máy_bay",
+        "tag": "FLIGHT-N"
+    },
+    {
+        "text": "nào",
+        "tag": "WH-QDET"
+    },
+    {
+        "text": "bay",
+        "tag": "FLIGHT-V"
+    },
+    {
+        "text": "từ",
+        "tag": "DEPART-P"
+    },
+    {
+        "text": "Hồ_Chí_Minh",
+        "tag": "CITYNAME-N"
+    },
+    {
+        "text": "đến",
+        "tag": "ARRIVE-P"
+    },
+    {
+        "text": "Hà_Nội",
+        "tag": "CITYNAME-N"
+    },
+    {
+        "text": "?",
+        "tag": "Q-PUNCT"
+    }
+]
+[
+    {
+        "text": "Máy_bay",
+        "tag": "FLIGHT-N"
+    },
+    {
+        "text": "VN4",
+        "tag": "FLIGHTNAME-N"
+    },
+    {
+        "text": "bay",
+        "tag": "FLIGHT-V"
+    },
+    {
+        "text": "từ",
+        "tag": "DEPART-P"
+    },
+    {
+        "text": "Đà_Nẵng",
+        "tag": "CITYNAME-N"
+    },
+    {
+        "text": "?",
+        "tag": "Q-PUNCT"
+    }
+]
+[
+    {
+        "text": "máy_bay",
+        "tag": "FLIGHT-N"
+    },
+    {
+        "text": "VJ5",
+        "tag": "FLIGHTNAME-N"
+    },
+    {
+        "text": "bay",
+        "tag": "FLIGHT-V"
+    },
+    {
+        "text": "từ",
+        "tag": "DEPART-P"
+    },
+    {
+        "text": "Hà_Nội",
+        "tag": "CITYNAME-N"
+    },
+    {
+        "text": "đến",
+        "tag": "ARRIVE-P"
+    },
+    {
+        "text": "Khánh_Hòa",
+        "tag": "CITYNAME-N"
+    },
+    {
+        "text": "mấy",
+        "tag": "WH-QDET"
+    },
+    {
+        "text": "giờ",
+        "tag": "TIME-N"
+    },
+    {
+        "text": "?",
+        "tag": "Q-PUNCT"
+    }
+]
+[
+    {
+        "text": "máy_bay",
+        "tag": "FLIGHT-N"
+    },
+    {
+        "text": "nào",
+        "tag": "WH-QDET"
+    },
+    {
+        "text": "bay",
+        "tag": "FLIGHT-V"
+    },
+    {
+        "text": "từ",
+        "tag": "DEPART-P"
+    },
+    {
+        "text": "Hải_Phòng",
+        "tag": "CITYNAME-N"
+    },
+    {
+        "text": "?",
+        "tag": "Q-PUNCT"
+    }
+]
+[
+    {
+        "text": "Máy_bay",
+        "tag": "FLIGHT-N"
+    },
+    {
+        "text": "của",
+        "tag": "POSS-ADJ"
+    },
+    {
+        "text": "VietJet_Air",
+        "tag": "BRAND-N"
+    },
+    {
+        "text": "bay",
+        "tag": "FLIGHT-V"
+    },
+    {
+        "text": "đến",
+        "tag": "ARRIVE-P"
+    },
+    {
+        "text": "Thành_phố",
+        "tag": "CITY-N"
+    },
+    {
+        "text": "nào",
+        "tag": "WH-QDET"
+    },
+    {
+        "text": "?",
+        "tag": "Q-PUNCT"
+    }
+]
+[
+    {
+        "text": "máy_bay",
+        "tag": "FLIGHT-N"
+    },
+    {
+        "text": "nào",
+        "tag": "WH-QDET"
+    },
+    {
+        "text": "bay",
+        "tag": "FLIGHT-V"
+    },
+    {
+        "text": "từ",
+        "tag": "DEPART-P"
+    },
+    {
+        "text": "Hải_Phòng",
+        "tag": "CITYNAME-N"
+    },
+    {
+        "text": "đến",
+        "tag": "ARRIVE-P"
+    },
+    {
+        "text": "Khánh_Hòa",
+        "tag": "CITYNAME-N"
+    },
+    {
+        "text": "?",
+        "tag": "Q-PUNCT"
+    }
+]
