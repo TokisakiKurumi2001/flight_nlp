@@ -1,0 +1,8 @@
+FLIGHT-QUERY({ "text": "Máy_bay", "tag": "FLIGHT-N" } -> { "text": "nào", "tag": "WH-QDET" })
+NSUBJ({ "text": "bay", "tag": "FLIGHT-V" } -> { "text": "Máy_bay", "tag": "FLIGHT-N" })
+ROOT({ "text": "root", "tag": "ROOT" } -> { "text": "bay", "tag": "FLIGHT-V" })
+ARRIVE-CASE({ "text": "Huế", "tag": "CITYNAME-N" } -> { "text": "đến", "tag": "ARRIVE-P" })
+DOBJ({ "text": "bay", "tag": "FLIGHT-V" } -> { "text": "Huế", "tag": "CITYNAME-N" })
+ATTIME-NMOD({ "text": "13:30HR", "tag": "TIME-NUM" } -> { "text": "lúc", "tag": "TIME-P" })
+TIME-ADVMOD({ "text": "bay", "tag": "FLIGHT-V" } -> { "text": "13:30HR", "tag": "TIME-NUM" })
+PUNCT({ "text": "bay", "tag": "FLIGHT-V" } -> { "text": "?", "tag": "Q-PUNCT" })
