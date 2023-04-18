@@ -21,6 +21,9 @@ class WordSegmentor:
         for word in self.words:
             sent = re.sub(word, word.replace(" ", "_"), sent)
             sent = re.sub(word.lower(), word.lower().replace(" ", "_"), sent)
+
+        # 1 giờ, 42 phút will be merged
+        sent = re.sub("(\d+)\s(giờ|phút)", r"\1_\2", sent)
         return sent
 
 

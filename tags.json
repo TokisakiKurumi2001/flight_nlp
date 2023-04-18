@@ -66,12 +66,8 @@
         "tag": "LAST-V"
     },
     {
-        "text": "1",
+        "text": "1_giờ",
         "tag": "TIME-NUM"
-    },
-    {
-        "text": "giờ",
-        "tag": "TIME-N"
     },
     {
         "text": "?",

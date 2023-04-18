@@ -3,6 +3,7 @@ from models.utils import remove_items, add_items, flatten
 from models import Token
 import re
 
+
 class SequenceTagger:
     def __init__(self):
         self.stopwords = ['Hãy', 'không', 'Có', 'các', 'không?',
@@ -19,7 +20,7 @@ class SequenceTagger:
             "từ": "DEPART-P",
             "Đà_Nẵng": "CITYNAME-N",
             "mất": "LAST-V",
-            # "1": "TIME-NUM"
+            # "1_giờ": "TIME-NUM"
             "giờ": "TIME-N",
             "cho_biết": "WH-QDET",
             "máy_bay": "FLIGHT-N",
@@ -55,8 +56,8 @@ class SequenceTagger:
 
             if token == "mất" and tokens[i+1] == "mấy":
                 rm_idxes.append(i)
-        #print(tokens)
-        #breakpoint()
+        # print(tokens)
+        # breakpoint()
         return list(filter(lambda x: len(x) > 0, remove_items(tokens, rm_idxes)))
 
     def add_words(self, tokens: List[str]) -> List[str]:
@@ -93,7 +94,7 @@ class SequenceTagger:
         ls = []
         tokens = self.__preprocess(tokens)
         for token in tokens:
-            if token.isnumeric():
+            if re.search('\d+_(giờ|phút)', token) is not None:
                 ls.append(Token(token, 'TIME-NUM'))
             elif re.search('\d{2}:\d{2}HR', token) is not None:
                 ls.append(Token(token, 'TIME-NUM'))
@@ -102,4 +103,3 @@ class SequenceTagger:
             else:
                 ls.append(Token(token, self.exact_match[token]))
         return ls
-
