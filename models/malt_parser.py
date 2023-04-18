@@ -40,6 +40,8 @@ class Relations:
             "CITY-N+ARRIVE-P": "ARRIVE-CASE",
             "FLIGHT-V+CITY-N": "DOBJ",
             "CITY-N+WH-QDET": "CITY-QUERY",
+            "TIME-N+TIME-P": "ATTIME-NMOD",
+            "FLIGHT-V+C-PUNCT": "PUNCT",
         }
 
     def lookup(self, tag1: str, tag2: str) -> Tuple[str, str]:
