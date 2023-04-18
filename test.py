@@ -8,7 +8,9 @@ if __name__ == "__main__":
     seqtag = SequenceTagger()
     ls = []
     for i in range(len(queries)):
-        if i in [3, 8]:
+        # if i in [0, 1, 2, 3, 4, 5, 6, 7]:
+        #     continue
+        if i in [3]:
             continue
         sent = queries[i]
         # tokenizer word

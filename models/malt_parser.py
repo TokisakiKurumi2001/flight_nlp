@@ -32,12 +32,14 @@ class Relations:
             "FLIGHT-V+Q-PUNCT": "PUNCT",
             "CITYNAME-N+DEPART-P": "DEPART-CASE",
             "TIME-NUM+LAST-V": "LAST-NUMMOD",
-            "FLIGHTNAME-N+FLIGHT-N": "FLIGHTNAME-NMOD",
-            "FLIGHT-V+FLIGHTNAME-N": "NSUBJ",
+            "FLIGHT-N+FLIGHTNAME-N": "FLIGHTNAME-NMOD",
             "TIME-N+WH-QDET": "TIME-QUERY",
             "FLIGHT-V+TIME-N": "TIME-ADVMOD",
             "FLIGHT-N+BRAND-N": "BRAND-NMOD",
             "BRAND-N+POSS-ADJ": "BRAND-APOSS",
+            "CITY-N+ARRIVE-P": "ARRIVE-CASE",
+            "FLIGHT-V+CITY-N": "DOBJ",
+            "CITY-N+WH-QDET": "CITY-QUERY",
         }
 
     def lookup(self, tag1: str, tag2: str) -> Tuple[str, str]:
@@ -80,6 +82,7 @@ class MaltParser:
 
     def __call__(self) -> List[Relations]:
         initial = True
+        reducible = 0
         while (len(self.input) != 0):
             if initial:
                 self.act(Action.SHIFT)
@@ -89,12 +92,23 @@ class MaltParser:
             relname, direction = self.relation_table.lookup(tag1, tag2)
             if direction == -1:
                 # no relation
-                self.act(Action.SHIFT)
+                if reducible > 0:
+                    self.act(Action.REDUCE)
+                    reducible -= 1
+                else:
+                    self.act(Action.SHIFT)
             elif direction == Arc.LEFT:
                 self.act(Action.LEFT, relname)
             else:
                 self.act(Action.RIGHT, relname)
-                if relname != "ROOT":
+                if relname == "ROOT":
+                    pass
+                elif len(self.input) > 0 and self.input[0].tag == "WH-QDET":
+                    reducible += 1
+                elif len(self.input) > 0 and self.input[0].tag == "Q-PUNCT":
+                    reducible = len(self.stack) - 2
+                else:
                     self.act(Action.REDUCE)
+            # breakpoint()
 
         return self.relations

@@ -1,0 +1,8 @@
+BRAND-APOSS({ "text": "VietJet_Air", "tag": "BRAND-N" } -> { "text": "của", "tag": "POSS-ADJ" })
+BRAND-NMOD({ "text": "Máy_bay", "tag": "FLIGHT-N" } -> { "text": "VietJet_Air", "tag": "BRAND-N" })
+NSUBJ({ "text": "bay", "tag": "FLIGHT-V" } -> { "text": "Máy_bay", "tag": "FLIGHT-N" })
+ROOT({ "text": "root", "tag": "ROOT" } -> { "text": "bay", "tag": "FLIGHT-V" })
+ARRIVE-CASE({ "text": "Thành_phố", "tag": "CITY-N" } -> { "text": "đến", "tag": "ARRIVE-P" })
+DOBJ({ "text": "bay", "tag": "FLIGHT-V" } -> { "text": "Thành_phố", "tag": "CITY-N" })
+CITY-QUERY({ "text": "Thành_phố", "tag": "CITY-N" } -> { "text": "nào", "tag": "WH-QDET" })
+PUNCT({ "text": "bay", "tag": "FLIGHT-V" } -> { "text": "?", "tag": "Q-PUNCT" })

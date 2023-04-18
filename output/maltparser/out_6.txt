@@ -1,5 +1,5 @@
-FLIGHTNAME-NMOD({ "text": "VJ5", "tag": "FLIGHTNAME-N" } -> { "text": "máy_bay", "tag": "FLIGHT-N" })
-NSUBJ({ "text": "bay", "tag": "FLIGHT-V" } -> { "text": "VJ5", "tag": "FLIGHTNAME-N" })
+FLIGHTNAME-NMOD({ "text": "máy_bay", "tag": "FLIGHT-N" } -> { "text": "VJ5", "tag": "FLIGHTNAME-N" })
+NSUBJ({ "text": "bay", "tag": "FLIGHT-V" } -> { "text": "máy_bay", "tag": "FLIGHT-N" })
 ROOT({ "text": "root", "tag": "ROOT" } -> { "text": "bay", "tag": "FLIGHT-V" })
 DEPART-CASE({ "text": "Hà_Nội", "tag": "CITYNAME-N" } -> { "text": "từ", "tag": "DEPART-P" })
 DOBJ({ "text": "bay", "tag": "FLIGHT-V" } -> { "text": "Hà_Nội", "tag": "CITYNAME-N" })
