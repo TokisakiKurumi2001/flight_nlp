@@ -1,0 +1,6 @@
+(s1 QUERY FLIGHT)
+(s1 PRED Bay)
+(s1 LSUBJ Máy_bay)
+(s1 FROM-LOC (NAME Đà_Nẵng))
+(s1 TO-LOC (NAME Hồ_Chí_Minh))
+(s1 LAST-TIME 1_giờ)

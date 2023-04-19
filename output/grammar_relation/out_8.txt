@@ -1,0 +1,4 @@
+(s1 QUERY CITY)
+(s1 PRED Bay)
+(s1 LSUBJ (BRAND VietJet_Air))
+(s1 TO-LOC ?)

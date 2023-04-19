@@ -1,0 +1,5 @@
+(s1 QUERY FLIGHT)
+(s1 PRED Bay)
+(s1 LSUBJ Máy_bay)
+(s1 TO-LOC (NAME Huế))
+(s1 AT-TIME 13:30HR)

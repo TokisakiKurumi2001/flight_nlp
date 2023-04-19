@@ -1,0 +1,4 @@
+(s1 QUERY VERIFY)
+(s1 PRED Bay)
+(s1 LSUBJ (NAME VN4))
+(s1 FROM-LOC (NAME Đà_Nẵng))

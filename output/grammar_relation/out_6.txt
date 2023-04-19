@@ -1,0 +1,6 @@
+(s1 QUERY TIME)
+(s1 PRED Bay)
+(s1 LSUBJ (NAME VJ5))
+(s1 FROM-LOC (NAME Hà_Nội))
+(s1 TO-LOC (NAME Khánh_Hòa))
+(s1 LAST-TIME ?)

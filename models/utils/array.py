@@ -2,6 +2,8 @@ from typing import List, Union
 
 
 def remove_items(ls: List[str], indexes: List[int]) -> List[str]:
+    if len(indexes) == 0:
+        return ls
     rt_ls = []
     ignore_idx = indexes.pop(0)
     for i, item in enumerate(ls):

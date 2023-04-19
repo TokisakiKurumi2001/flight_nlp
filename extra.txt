@@ -1,0 +1,7 @@
+Máy bay VN4 bay từ Đà Nẵng lúc mấy giờ?.
+(s1 QUERY TIME)
+(s1 PRED Bay)
+(s1 LSUBJ (NAME VN4))
+(s1 FROM-LOC (NAME Đà_Nẵng))
+(s1 AT-TIME ?)
+
