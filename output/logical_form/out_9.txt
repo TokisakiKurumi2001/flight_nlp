@@ -1,0 +1,2 @@
+Có máy bay nào bay từ Hải Phòng đến Khánh Hòa không?
+(QUERY ?f1) (DUR-FLIGHT ?f1 (FROM-LOC (NAME h1 Hải_Phòng)) (TO-LOC (NAME k1 Khánh_Hòa)))

@@ -1,0 +1,2 @@
+Máy bay nào bay từ Đà Nẵng đến TP. Hồ Chí Minh mất 1 giờ ?.
+(QUERY ?f1) (DUR-FLIGHT ?f1 (FROM-LOC (NAME d1 Đà_Nẵng)) (TO-LOC (NAME h1 Hồ_Chí_Minh)) (LAST-TIME (NAME t1 1_giờ)))

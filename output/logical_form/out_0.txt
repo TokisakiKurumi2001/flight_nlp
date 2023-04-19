@@ -1,0 +1,2 @@
+Máy bay nào đến thành phố Huế lúc 13:30HR ?.
+(QUERY ?f1) (TGT-FLIGHT ?f1 (TO-LOC (NAME h1 Huế)) (AT-TIME (NAME t1 13:30HR)))

@@ -1,0 +1,2 @@
+Có máy bay nào xuất phát từ Hải Phòng không ?.
+(QUERY ?f1) (SRC-FLIGHT ?f1 (FROM-LOC (NAME h1 Hải_Phòng)))

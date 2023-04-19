@@ -1,0 +1,2 @@
+Hãy cho biết mã hiệu các máy bay hạ cánh ở Huế ?.
+(QUERY ?f1) (TGT-FLIGHT ?f1 (TO-LOC (NAME h1 Huế)))

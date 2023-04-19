@@ -1,0 +1,2 @@
+Máy bay nào bay từ TP.Hồ Chí Minh đến Hà Nội ?.
+(QUERY ?f1) (DUR-FLIGHT ?f1 (FROM-LOC (NAME h1 Hồ_Chí_Minh)) (TO-LOC (NAME h2 Hà_Nội)))
