@@ -1,0 +1,2 @@
+Máy bay của hãng hàng không VietJet Air bay đến những thành phố nào ?
+(QUERY ?c1) (TGT-FLIGHT (BRAND VietJet_Air) (TO-LOC ?c1))

@@ -1,0 +1,2 @@
+Máy bay VN4 có xuất phát từ Đà Nẵng không ?.
+(CHECK) (SRC-FLIGHT (NAME VN4) (FROM-LOC (NAME d1 Đà_Nẵng)))

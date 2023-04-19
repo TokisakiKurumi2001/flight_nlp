@@ -1,4 +1,4 @@
-from models import DataLoader, Tokenizer, SequenceTagger, MaltParser, GrammarRelation
+from models import DataLoader, Tokenizer, SequenceTagger, MaltParser, GrammarRelation, LogicalForm
 from collections import Counter
 
 if __name__ == "__main__":
@@ -21,5 +21,9 @@ if __name__ == "__main__":
         #     for g in graphs:
         #         file.write(f"{g}\n")
         grammar_rel = GrammarRelation(graphs)
-        with open(f'output/grammar_relation/out_{i}.txt', 'w+') as file:
-            file.write(f"{grammar_rel}")
+        # with open(f'output/grammar_relation/out_{i}.txt', 'w+') as file:
+        #     file.write(f"{grammar_rel}")
+        logical_form = LogicalForm(grammar_rel)
+        with open(f'output/logical_form/out_{i}.txt', 'w+') as file:
+            file.write(f"{sent}\n")
+            file.write(f"{logical_form}")
