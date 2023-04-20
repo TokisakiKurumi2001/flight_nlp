@@ -1,4 +1,4 @@
-from models import DataLoader, Tokenizer, SequenceTagger, MaltParser, GrammarRelation, LogicalForm, ProceduralSem
+from models import DataLoader, Tokenizer, SequenceTagger, MaltParser, GrammarRelation, LogicalForm, ProceduralSem, QueryTransform
 from collections import Counter
 
 if __name__ == "__main__":
@@ -8,7 +8,7 @@ if __name__ == "__main__":
     seqtag = SequenceTagger()
     ls = []
     for i in range(len(queries)):
-        # if i in [0]:
+        # if i in [0, 1, 2, 3, 4, 5, 6, 7]:
         #     continue
         sent = queries[i]
         # tokenizer word
@@ -30,9 +30,12 @@ if __name__ == "__main__":
         #     file.write(f"{sent}\n")
         #     file.write(f"{logical_form}")
         proc_sem = ProceduralSem(logical_form)
-        with open(f'output/procedure_semantic/out_{i}.txt', 'w+') as file:
+        # with open(f'output/procedure_semantic/out_{i}.txt', 'w+') as file:
+        #     file.write(f"{sent}\n")
+        #     file.write(f"{proc_sem}")
+        query = QueryTransform(proc_sem.easy_query())
+        with open(f'output/sql_query/out_{i}.txt', 'w+') as file:
             file.write(f"{sent}\n")
-            file.write(f"{proc_sem}")
-        print(sent)
-        print(proc_sem)
+            file.write(f"{query}")
+        # print(query)
         # break

@@ -1,0 +1,2 @@
+Máy bay VN4 có xuất phát từ Đà Nẵng không ?.
+SELECT * FROM DEPARTS WHERE DEPARTS.ID = "VN4" AND DEPARTS.CITY = "DN";

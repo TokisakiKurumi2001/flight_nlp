@@ -185,3 +185,8 @@ class ProceduralSem:
 
     def __repr__(self) -> str:
         return f"{self.query} (& {self.flight} {self.flight_time})"
+
+    def easy_query(self) -> str:
+        # Query will parse directly from this string, using this way, we can capture common variable
+        # to select and link between table
+        return re.sub("\(|\)", "", f"{self.query}+{self.flight}+{self.flight_time}")

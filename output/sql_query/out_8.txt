@@ -1,0 +1,2 @@
+Máy bay của hãng hàng không VietJet Air bay đến những thành phố nào ?
+SELECT ARRIVES.CITY FROM ARRIVES,FLIGHTS INNER JOIN FLIGHTS ON ARRIVES.ID = FLIGHTS.ID WHERE FLIGHTS.BRAND = "VIETJET_AIR";
