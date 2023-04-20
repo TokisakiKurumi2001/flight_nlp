@@ -1,0 +1,2 @@
+Máy bay của hãng hàng không VietJet Air bay đến những thành phố nào ?
+['Huế', 'Hà Nội', 'Hải Phòng', 'Đà Nẵng', 'Khánh Hòa']

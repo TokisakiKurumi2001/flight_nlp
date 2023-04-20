@@ -1,5 +1,6 @@
 import string
 from typing import List
+import sqlite3
 
 
 class DBQueryHelper:
@@ -18,6 +19,15 @@ class DBQueryHelper:
             "RUNS": ['ID', 'CITY1', 'CITY2', 'TIME'],
         }
 
+        self.city_abbr_reverse_map = {
+            "HUE": "Huế",
+            "DN": "Đà Nẵng",
+            "HCM": "Hồ Chí Minh",
+            "HN": "Hà Nội",
+            "KH": "Khánh Hòa",
+            "HP": "Hải Phòng",
+        }
+
     def islower(self, c: str) -> bool:
         return c in string.ascii_lowercase
 
@@ -29,6 +39,16 @@ class DBQueryHelper:
 
     def lookup_schema(self, name: str) -> List[str]:
         return self.table_schema[name]
+
+    def convert_abbr(self, name: str) -> str:
+        if name.startswith('V'):
+            # flight name
+            return name
+        elif name[0].isnumeric():
+            # time
+            return name
+        else:
+            return self.city_abbr_reverse_map[name]
 
 
 class QueryTransform:
@@ -67,7 +87,7 @@ class QueryTransform:
         join = ""
         tables.append(main_table)
         if not ignore_flight_table:
-            tables.append(self.helper.lookup_table("FLIGHT"))
+            # tables.append(self.helper.lookup_table("FLIGHT"))
             join = f" INNER JOIN FLIGHTS ON {main_table}.ID = FLIGHTS.ID"
 
         # condition & query column
@@ -109,4 +129,36 @@ class QueryTransform:
 
 
 class QueryDB:
-    pass
+    def __init__(self, db: str) -> None:
+        try:
+            self.conn = sqlite3.connect(db)
+            self.helper = DBQueryHelper()
+        except:
+            raise Exception('Please make the database first')
+
+    def query_db(self, query: QueryTransform):
+        cursor = self.conn.execute(query.query)
+        res = []
+
+        check_flag = False
+        if query.answer_engineer is not None:
+            check_flag = True
+
+        for row in cursor:
+            if check_flag:
+                res.append("YES")
+            else:
+                if len(row) == 1:
+                    # ask for 1 columns
+                    res.append(self.helper.convert_abbr(row[0]))
+                elif len(row) == 2:
+                    # ask for 2 columns
+                    res.append((self.helper.convert_abbr(
+                        row[0]), self.helper.convert_abbr(row[1])))
+
+        if len(res) == 0 and check_flag:
+            res.append("NO")
+        return res
+
+    def close(self):
+        self.conn.close()

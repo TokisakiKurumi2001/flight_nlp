@@ -1,15 +1,13 @@
-from models import DataLoader, Tokenizer, SequenceTagger, MaltParser, GrammarRelation, LogicalForm, ProceduralSem, QueryTransform
-from collections import Counter
+from models import DataLoader, Tokenizer, SequenceTagger, MaltParser, GrammarRelation, LogicalForm, ProceduralSem, QueryTransform, QueryDB
 
 if __name__ == "__main__":
     queries = DataLoader()
     queries.load('input/queries.txt')
     tokenizer = Tokenizer()
     seqtag = SequenceTagger()
+    querydb = QueryDB('input/nlp.db')
     ls = []
     for i in range(len(queries)):
-        # if i in [0, 1, 2, 3, 4, 5, 6, 7]:
-        #     continue
         sent = queries[i]
         # tokenizer word
         tokens = tokenizer.tokenize(sent)
@@ -19,23 +17,27 @@ if __name__ == "__main__":
         # print(toks)
         parser = MaltParser(toks)
         graphs = parser()
-        # with open(f'output/maltparser/out_{i}.txt', 'w+') as file:
-        #     for g in graphs:
-        #         file.write(f"{g}\n")
+        with open(f'output/maltparser/out_{i}.txt', 'w+') as file:
+            for g in graphs:
+                file.write(f"{g}\n")
         grammar_rel = GrammarRelation(graphs)
-        # with open(f'output/grammar_relation/out_{i}.txt', 'w+') as file:
-        #     file.write(f"{grammar_rel}")
+        with open(f'output/grammar_relation/out_{i}.txt', 'w+') as file:
+            file.write(f"{grammar_rel}")
         logical_form = LogicalForm(grammar_rel)
-        # with open(f'output/logical_form/out_{i}.txt', 'w+') as file:
-        #     file.write(f"{sent}\n")
-        #     file.write(f"{logical_form}")
+        with open(f'output/logical_form/out_{i}.txt', 'w+') as file:
+            file.write(f"{sent}\n")
+            file.write(f"{logical_form}")
         proc_sem = ProceduralSem(logical_form)
-        # with open(f'output/procedure_semantic/out_{i}.txt', 'w+') as file:
-        #     file.write(f"{sent}\n")
-        #     file.write(f"{proc_sem}")
+        with open(f'output/procedure_semantic/out_{i}.txt', 'w+') as file:
+            file.write(f"{sent}\n")
+            file.write(f"{proc_sem}")
         query = QueryTransform(proc_sem.easy_query())
         with open(f'output/sql_query/out_{i}.txt', 'w+') as file:
             file.write(f"{sent}\n")
             file.write(f"{query}")
-        # print(query)
-        # break
+        res = querydb.query_db(query)
+        with open(f'output/query_res/out_{i}.txt', 'w+') as file:
+            file.write(f'{sent}\n')
+            file.write(f"{res}")
+
+    querydb.close()
