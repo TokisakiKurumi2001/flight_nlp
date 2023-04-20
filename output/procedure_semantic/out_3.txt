@@ -1,0 +1,2 @@
+Máy bay nào xuất phát từ Tp.Hồ Chí Minh, lúc mấy giờ ?.
+(QUERY f1,t1) (& (FLIGHT f1 b1) (DTIME f1 HCM t1))

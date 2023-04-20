@@ -1,0 +1,2 @@
+Có máy bay nào xuất phát từ Hải Phòng không ?.
+(QUERY f1) (& (FLIGHT f1 b1) (DTIME f1 HP t1))

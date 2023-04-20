@@ -15,7 +15,7 @@ class Token:
 class WordSegmentor:
     def __init__(self):
         self.words = ["Máy bay", "Thành phố", "Đà Nẵng", "Hồ Chí Minh", "cho biết", "mã hiệu", "hạ cánh", "xuất phát",
-                      "Hà Nội", "Thời gian", "Khánh Hòa", "Hải Phòng", "hãng hàng không", "VietJet Air", "Vietname Airline"]
+                      "Hà Nội", "Thời gian", "Khánh Hòa", "Hải Phòng", "hãng hàng không", "VietJet Air", "Vietnam Airline"]
 
     def __call__(self, sent: str) -> str:
         for word in self.words:

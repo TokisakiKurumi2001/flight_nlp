@@ -1,0 +1,2 @@
+Máy bay nào bay từ TP.Hồ Chí Minh đến Hà Nội ?.
+(QUERY f1) (& (FLIGHT f1 b1) (RUN-TIME f1 HCM HN t1))

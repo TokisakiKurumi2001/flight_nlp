@@ -1,0 +1,2 @@
+Có máy bay nào bay từ Hải Phòng đến Khánh Hòa không?
+(QUERY f1) (& (FLIGHT f1 b1) (RUN-TIME f1 HP KH t1))

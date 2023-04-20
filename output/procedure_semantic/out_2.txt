@@ -1,0 +1,2 @@
+Hãy cho biết mã hiệu các máy bay hạ cánh ở Huế ?.
+(QUERY f1) (& (FLIGHT f1 b1) (ATIME f1 HUE t1))

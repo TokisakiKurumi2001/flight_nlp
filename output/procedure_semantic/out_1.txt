@@ -1,0 +1,2 @@
+Máy bay nào bay từ Đà Nẵng đến TP. Hồ Chí Minh mất 1 giờ ?.
+(QUERY f1) (& (FLIGHT f1 b1) (RUN-TIME f1 DN HCM 1:00HR))

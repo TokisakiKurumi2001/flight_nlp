@@ -1,0 +1,2 @@
+Máy bay của hãng hàng không VietJet Air bay đến những thành phố nào ?
+(QUERY c1) (& (FLIGHT f1 VIETJET_AIR) (ATIME f1 c1 t1))

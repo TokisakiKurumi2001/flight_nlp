@@ -1,0 +1,2 @@
+Máy bay nào đến thành phố Huế lúc 13:30HR ?.
+(QUERY f1) (& (FLIGHT f1 b1) (ATIME f1 HUE 13:30HR))
