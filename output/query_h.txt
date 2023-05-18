@@ -1,0 +1,33 @@
+Query: Có máy bay nào xuất phát từ Hải Phòng không ?.
+
+Tokenizer output: ['Có', 'máy_bay', 'nào', 'xuất_phát', 'từ', 'Hải_Phòng', 'không', '?', '']
+
+Sequence tagger output: 
+{ "text": "máy_bay", "tag": "FLIGHT-N" }
+{ "text": "nào", "tag": "WH-QDET" }
+{ "text": "bay", "tag": "FLIGHT-V" }
+{ "text": "từ", "tag": "DEPART-P" }
+{ "text": "Hải_Phòng", "tag": "CITYNAME-N" }
+{ "text": "?", "tag": "Q-PUNCT" }
+
+Malt parser output: 
+FLIGHT-QUERY({ "text": "máy_bay", "tag": "FLIGHT-N" } -> { "text": "nào", "tag": "WH-QDET" })
+NSUBJ({ "text": "bay", "tag": "FLIGHT-V" } -> { "text": "máy_bay", "tag": "FLIGHT-N" })
+ROOT({ "text": "root", "tag": "ROOT" } -> { "text": "bay", "tag": "FLIGHT-V" })
+DEPART-CASE({ "text": "Hải_Phòng", "tag": "CITYNAME-N" } -> { "text": "từ", "tag": "DEPART-P" })
+DOBJ({ "text": "bay", "tag": "FLIGHT-V" } -> { "text": "Hải_Phòng", "tag": "CITYNAME-N" })
+PUNCT({ "text": "bay", "tag": "FLIGHT-V" } -> { "text": "?", "tag": "Q-PUNCT" })
+
+Grammatical relation: 
+(s1 QUERY FLIGHT)
+(s1 PRED Bay)
+(s1 LSUBJ Máy_bay)
+(s1 FROM-LOC (NAME Hải_Phòng))
+
+Logical form: (QUERY ?f1) (SRC-FLIGHT ?f1 (FROM-LOC (NAME h1 Hải_Phòng)))
+
+Procedural semantic form: (QUERY f1) (& (FLIGHT f1 b1) (DTIME f1 HP t1))
+
+SQL query: SELECT DEPARTS.ID FROM DEPARTS WHERE DEPARTS.CITY = "HP";
+
+Final result: ['NO']

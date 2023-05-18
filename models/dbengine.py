@@ -156,7 +156,7 @@ class QueryDB:
                     res.append((self.helper.convert_abbr(
                         row[0]), self.helper.convert_abbr(row[1])))
 
-        if len(res) == 0 and check_flag:
+        if len(res) == 0:
             res.append("NO")
         return res
 

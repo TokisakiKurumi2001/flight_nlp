@@ -1,0 +1,38 @@
+Query: Có máy bay nào bay từ Hải Phòng đến Khánh Hòa không?
+
+Tokenizer output: ['Có', 'máy_bay', 'nào', 'bay', 'từ', 'Hải_Phòng', 'đến', 'Khánh_Hòa', 'không', '?', '']
+
+Sequence tagger output: 
+{ "text": "máy_bay", "tag": "FLIGHT-N" }
+{ "text": "nào", "tag": "WH-QDET" }
+{ "text": "bay", "tag": "FLIGHT-V" }
+{ "text": "từ", "tag": "DEPART-P" }
+{ "text": "Hải_Phòng", "tag": "CITYNAME-N" }
+{ "text": "đến", "tag": "ARRIVE-P" }
+{ "text": "Khánh_Hòa", "tag": "CITYNAME-N" }
+{ "text": "?", "tag": "Q-PUNCT" }
+
+Malt parser output: 
+FLIGHT-QUERY({ "text": "máy_bay", "tag": "FLIGHT-N" } -> { "text": "nào", "tag": "WH-QDET" })
+NSUBJ({ "text": "bay", "tag": "FLIGHT-V" } -> { "text": "máy_bay", "tag": "FLIGHT-N" })
+ROOT({ "text": "root", "tag": "ROOT" } -> { "text": "bay", "tag": "FLIGHT-V" })
+DEPART-CASE({ "text": "Hải_Phòng", "tag": "CITYNAME-N" } -> { "text": "từ", "tag": "DEPART-P" })
+DOBJ({ "text": "bay", "tag": "FLIGHT-V" } -> { "text": "Hải_Phòng", "tag": "CITYNAME-N" })
+ARRIVE-CASE({ "text": "Khánh_Hòa", "tag": "CITYNAME-N" } -> { "text": "đến", "tag": "ARRIVE-P" })
+DOBJ({ "text": "bay", "tag": "FLIGHT-V" } -> { "text": "Khánh_Hòa", "tag": "CITYNAME-N" })
+PUNCT({ "text": "bay", "tag": "FLIGHT-V" } -> { "text": "?", "tag": "Q-PUNCT" })
+
+Grammatical relation: 
+(s1 QUERY FLIGHT)
+(s1 PRED Bay)
+(s1 LSUBJ Máy_bay)
+(s1 FROM-LOC (NAME Hải_Phòng))
+(s1 TO-LOC (NAME Khánh_Hòa))
+
+Logical form: (QUERY ?f1) (DUR-FLIGHT ?f1 (FROM-LOC (NAME h1 Hải_Phòng)) (TO-LOC (NAME k1 Khánh_Hòa)))
+
+Procedural semantic form: (QUERY f1) (& (FLIGHT f1 b1) (RUN-TIME f1 HP KH t1))
+
+SQL query: SELECT RUNS.ID FROM RUNS WHERE RUNS.CITY1 = "HP" AND RUNS.CITY2 = "KH";
+
+Final result: ['NO']

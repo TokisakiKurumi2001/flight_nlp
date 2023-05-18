@@ -1,0 +1,43 @@
+Query: Thời gian máy bay VJ5 bay từ TP. Hà Nội đến Khánh Hòa mất mấy giờ ?.
+
+Tokenizer output: ['Thời_gian', 'máy_bay', 'VJ5', 'bay', 'từ', 'Thành_phố', 'Hà_Nội', 'đến', 'Khánh_Hòa', 'mất', 'mấy', 'giờ', '?', '']
+
+Sequence tagger output: 
+{ "text": "máy_bay", "tag": "FLIGHT-N" }
+{ "text": "VJ5", "tag": "FLIGHTNAME-N" }
+{ "text": "bay", "tag": "FLIGHT-V" }
+{ "text": "từ", "tag": "DEPART-P" }
+{ "text": "Hà_Nội", "tag": "CITYNAME-N" }
+{ "text": "đến", "tag": "ARRIVE-P" }
+{ "text": "Khánh_Hòa", "tag": "CITYNAME-N" }
+{ "text": "mấy", "tag": "WH-QDET" }
+{ "text": "giờ", "tag": "TIME-N" }
+{ "text": "?", "tag": "Q-PUNCT" }
+
+Malt parser output: 
+FLIGHTNAME-NMOD({ "text": "máy_bay", "tag": "FLIGHT-N" } -> { "text": "VJ5", "tag": "FLIGHTNAME-N" })
+NSUBJ({ "text": "bay", "tag": "FLIGHT-V" } -> { "text": "máy_bay", "tag": "FLIGHT-N" })
+ROOT({ "text": "root", "tag": "ROOT" } -> { "text": "bay", "tag": "FLIGHT-V" })
+DEPART-CASE({ "text": "Hà_Nội", "tag": "CITYNAME-N" } -> { "text": "từ", "tag": "DEPART-P" })
+DOBJ({ "text": "bay", "tag": "FLIGHT-V" } -> { "text": "Hà_Nội", "tag": "CITYNAME-N" })
+ARRIVE-CASE({ "text": "Khánh_Hòa", "tag": "CITYNAME-N" } -> { "text": "đến", "tag": "ARRIVE-P" })
+DOBJ({ "text": "bay", "tag": "FLIGHT-V" } -> { "text": "Khánh_Hòa", "tag": "CITYNAME-N" })
+TIME-QUERY({ "text": "giờ", "tag": "TIME-N" } -> { "text": "mấy", "tag": "WH-QDET" })
+TIME-ADVMOD({ "text": "bay", "tag": "FLIGHT-V" } -> { "text": "giờ", "tag": "TIME-N" })
+PUNCT({ "text": "bay", "tag": "FLIGHT-V" } -> { "text": "?", "tag": "Q-PUNCT" })
+
+Grammatical relation: 
+(s1 QUERY TIME)
+(s1 PRED Bay)
+(s1 LSUBJ (NAME VJ5))
+(s1 FROM-LOC (NAME Hà_Nội))
+(s1 TO-LOC (NAME Khánh_Hòa))
+(s1 LAST-TIME ?)
+
+Logical form: (QUERY ?t1) (DUR-FLIGHT (NAME VJ5) (FROM-LOC (NAME h1 Hà_Nội)) (TO-LOC (NAME k1 Khánh_Hòa)) (LAST-TIME ?t1))
+
+Procedural semantic form: (QUERY t1) (& (FLIGHT VJ5 b1) (RUN-TIME VJ5 HN KH t1))
+
+SQL query: SELECT RUNS.TIME FROM RUNS WHERE RUNS.ID = "VJ5" AND RUNS.CITY1 = "HN" AND RUNS.CITY2 = "KH";
+
+Final result: ['1:45HR']

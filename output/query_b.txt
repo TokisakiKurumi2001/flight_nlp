@@ -1,0 +1,43 @@
+Query: Máy bay nào bay từ Đà Nẵng đến TP. Hồ Chí Minh mất 1 giờ ?.
+
+Tokenizer output: ['Máy_bay', 'nào', 'bay', 'từ', 'Đà_Nẵng', 'đến', 'Thành_phố', 'Hồ_Chí_Minh', 'mất', '1_giờ', '?', '']
+
+Sequence tagger output: 
+{ "text": "Máy_bay", "tag": "FLIGHT-N" }
+{ "text": "nào", "tag": "WH-QDET" }
+{ "text": "bay", "tag": "FLIGHT-V" }
+{ "text": "từ", "tag": "DEPART-P" }
+{ "text": "Đà_Nẵng", "tag": "CITYNAME-N" }
+{ "text": "đến", "tag": "ARRIVE-P" }
+{ "text": "Hồ_Chí_Minh", "tag": "CITYNAME-N" }
+{ "text": "mất", "tag": "LAST-V" }
+{ "text": "1_giờ", "tag": "TIME-NUM" }
+{ "text": "?", "tag": "Q-PUNCT" }
+
+Malt parser output: 
+FLIGHT-QUERY({ "text": "Máy_bay", "tag": "FLIGHT-N" } -> { "text": "nào", "tag": "WH-QDET" })
+NSUBJ({ "text": "bay", "tag": "FLIGHT-V" } -> { "text": "Máy_bay", "tag": "FLIGHT-N" })
+ROOT({ "text": "root", "tag": "ROOT" } -> { "text": "bay", "tag": "FLIGHT-V" })
+DEPART-CASE({ "text": "Đà_Nẵng", "tag": "CITYNAME-N" } -> { "text": "từ", "tag": "DEPART-P" })
+DOBJ({ "text": "bay", "tag": "FLIGHT-V" } -> { "text": "Đà_Nẵng", "tag": "CITYNAME-N" })
+ARRIVE-CASE({ "text": "Hồ_Chí_Minh", "tag": "CITYNAME-N" } -> { "text": "đến", "tag": "ARRIVE-P" })
+DOBJ({ "text": "bay", "tag": "FLIGHT-V" } -> { "text": "Hồ_Chí_Minh", "tag": "CITYNAME-N" })
+LAST-NUMMOD({ "text": "1_giờ", "tag": "TIME-NUM" } -> { "text": "mất", "tag": "LAST-V" })
+TIME-ADVMOD({ "text": "bay", "tag": "FLIGHT-V" } -> { "text": "1_giờ", "tag": "TIME-NUM" })
+PUNCT({ "text": "bay", "tag": "FLIGHT-V" } -> { "text": "?", "tag": "Q-PUNCT" })
+
+Grammatical relation: 
+(s1 QUERY FLIGHT)
+(s1 PRED Bay)
+(s1 LSUBJ Máy_bay)
+(s1 FROM-LOC (NAME Đà_Nẵng))
+(s1 TO-LOC (NAME Hồ_Chí_Minh))
+(s1 LAST-TIME 1_giờ)
+
+Logical form: (QUERY ?f1) (DUR-FLIGHT ?f1 (FROM-LOC (NAME d1 Đà_Nẵng)) (TO-LOC (NAME h1 Hồ_Chí_Minh)) (LAST-TIME (NAME t1 1_giờ)))
+
+Procedural semantic form: (QUERY f1) (& (FLIGHT f1 b1) (RUN-TIME f1 DN HCM 1:00HR))
+
+SQL query: SELECT RUNS.ID FROM RUNS WHERE RUNS.CITY1 = "DN" AND RUNS.CITY2 = "HCM" AND RUNS.TIME = "1:00HR";
+
+Final result: ['VN2']

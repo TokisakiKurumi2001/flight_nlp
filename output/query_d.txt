@@ -1,0 +1,46 @@
+Query: Máy bay nào xuất phát từ Tp.Hồ Chí Minh, lúc mấy giờ ?.
+
+Tokenizer output: ['Máy_bay', 'nào', 'xuất_phát', 'từ', 'Thành_phố', 'Hồ_Chí_Minh', ',', 'lúc', 'mấy', 'giờ', '?', '']
+
+Sequence tagger output: 
+{ "text": "Máy_bay", "tag": "FLIGHT-N" }
+{ "text": "nào", "tag": "WH-QDET" }
+{ "text": "bay", "tag": "FLIGHT-V" }
+{ "text": "từ", "tag": "DEPART-P" }
+{ "text": "Hồ_Chí_Minh", "tag": "CITYNAME-N" }
+{ "text": ",", "tag": "C-PUNCT" }
+{ "text": "lúc", "tag": "TIME-P" }
+{ "text": "mấy", "tag": "WH-QDET" }
+{ "text": "giờ", "tag": "TIME-N" }
+{ "text": "?", "tag": "Q-PUNCT" }
+
+Malt parser output: 
+FLIGHT-QUERY({ "text": "Máy_bay", "tag": "FLIGHT-N" } -> { "text": "nào", "tag": "WH-QDET" })
+NSUBJ({ "text": "bay", "tag": "FLIGHT-V" } -> { "text": "Máy_bay", "tag": "FLIGHT-N" })
+ROOT({ "text": "root", "tag": "ROOT" } -> { "text": "bay", "tag": "FLIGHT-V" })
+DEPART-CASE({ "text": "Hồ_Chí_Minh", "tag": "CITYNAME-N" } -> { "text": "từ", "tag": "DEPART-P" })
+DOBJ({ "text": "bay", "tag": "FLIGHT-V" } -> { "text": "Hồ_Chí_Minh", "tag": "CITYNAME-N" })
+PUNCT({ "text": "bay", "tag": "FLIGHT-V" } -> { "text": ",", "tag": "C-PUNCT" })
+TIME-QUERY({ "text": "giờ", "tag": "TIME-N" } -> { "text": "mấy", "tag": "WH-QDET" })
+ATTIME-NMOD({ "text": "giờ", "tag": "TIME-N" } -> { "text": "lúc", "tag": "TIME-P" })
+TIME-ADVMOD({ "text": "bay", "tag": "FLIGHT-V" } -> { "text": "giờ", "tag": "TIME-N" })
+PUNCT({ "text": "bay", "tag": "FLIGHT-V" } -> { "text": "?", "tag": "Q-PUNCT" })
+
+Grammatical relation: 
+(s1 QUERY FLIGHT)
+(s1 PRED Bay)
+(s1 LSUBJ Máy_bay)
+(s1 FROM-LOC (NAME Hồ_Chí_Minh))
+(s2 QUERY TIME)
+(s2 PRED Bay)
+(s2 LSUBJ Máy_bay)
+(s2 FROM-LOC (NAME Hồ_Chí_Minh))
+(s2 AT-TIME ?)
+
+Logical form: (QUERY ?f1,?t1) (SRC-FLIGHT ?f1 (FROM-LOC (NAME h1 Hồ_Chí_Minh)) (AT-TIME ?t1))
+
+Procedural semantic form: (QUERY f1,t1) (& (FLIGHT f1 b1) (DTIME f1 HCM t1))
+
+SQL query: SELECT DEPARTS.ID,DEPARTS.TIME FROM DEPARTS WHERE DEPARTS.CITY = "HCM";
+
+Final result: [('VN1', '10:00HR'), ('VN3', '4:30HR'), ('VN5', '17:00HR'), ('VJ3', '9:45HR'), ('VJ4', '8:30HR')]

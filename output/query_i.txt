@@ -1,0 +1,37 @@
+Query: Máy bay của hãng hàng không VietJet Air bay đến những thành phố nào ?
+
+Tokenizer output: ['Máy_bay', 'của', 'hãng_hàng_không', 'VietJet_Air', 'bay', 'đến', 'những', 'Thành_phố', 'nào', '?', '']
+
+Sequence tagger output: 
+{ "text": "Máy_bay", "tag": "FLIGHT-N" }
+{ "text": "của", "tag": "POSS-ADJ" }
+{ "text": "VietJet_Air", "tag": "BRAND-N" }
+{ "text": "bay", "tag": "FLIGHT-V" }
+{ "text": "đến", "tag": "ARRIVE-P" }
+{ "text": "Thành_phố", "tag": "CITY-N" }
+{ "text": "nào", "tag": "WH-QDET" }
+{ "text": "?", "tag": "Q-PUNCT" }
+
+Malt parser output: 
+BRAND-APOSS({ "text": "VietJet_Air", "tag": "BRAND-N" } -> { "text": "của", "tag": "POSS-ADJ" })
+BRAND-NMOD({ "text": "Máy_bay", "tag": "FLIGHT-N" } -> { "text": "VietJet_Air", "tag": "BRAND-N" })
+NSUBJ({ "text": "bay", "tag": "FLIGHT-V" } -> { "text": "Máy_bay", "tag": "FLIGHT-N" })
+ROOT({ "text": "root", "tag": "ROOT" } -> { "text": "bay", "tag": "FLIGHT-V" })
+ARRIVE-CASE({ "text": "Thành_phố", "tag": "CITY-N" } -> { "text": "đến", "tag": "ARRIVE-P" })
+DOBJ({ "text": "bay", "tag": "FLIGHT-V" } -> { "text": "Thành_phố", "tag": "CITY-N" })
+CITY-QUERY({ "text": "Thành_phố", "tag": "CITY-N" } -> { "text": "nào", "tag": "WH-QDET" })
+PUNCT({ "text": "bay", "tag": "FLIGHT-V" } -> { "text": "?", "tag": "Q-PUNCT" })
+
+Grammatical relation: 
+(s1 QUERY CITY)
+(s1 PRED Bay)
+(s1 LSUBJ (BRAND VietJet_Air))
+(s1 TO-LOC ?)
+
+Logical form: (QUERY ?c1) (TGT-FLIGHT (BRAND VietJet_Air) (TO-LOC ?c1))
+
+Procedural semantic form: (QUERY c1) (& (FLIGHT f1 VIETJET_AIR) (ATIME f1 c1 t1))
+
+SQL query: SELECT ARRIVES.CITY FROM ARRIVES INNER JOIN FLIGHTS ON ARRIVES.ID = FLIGHTS.ID WHERE FLIGHTS.BRAND = "VIETJET_AIR";
+
+Final result: ['Huế', 'Hà Nội', 'Hải Phòng', 'Đà Nẵng', 'Khánh Hòa']

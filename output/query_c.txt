@@ -1,0 +1,33 @@
+Query: Hãy cho biết mã hiệu các máy bay hạ cánh ở Huế ?.
+
+Tokenizer output: ['Hãy', 'cho_biết', 'mã_hiệu', 'các', 'máy_bay', 'hạ_cánh', 'ở', 'Huế', '?', '']
+
+Sequence tagger output: 
+{ "text": "cho_biết", "tag": "WH-QDET" }
+{ "text": "máy_bay", "tag": "FLIGHT-N" }
+{ "text": "bay", "tag": "FLIGHT-V" }
+{ "text": "đến", "tag": "ARRIVE-P" }
+{ "text": "Huế", "tag": "CITYNAME-N" }
+{ "text": "?", "tag": "Q-PUNCT" }
+
+Malt parser output: 
+FLIGHT-QUERY({ "text": "máy_bay", "tag": "FLIGHT-N" } -> { "text": "cho_biết", "tag": "WH-QDET" })
+NSUBJ({ "text": "bay", "tag": "FLIGHT-V" } -> { "text": "máy_bay", "tag": "FLIGHT-N" })
+ROOT({ "text": "root", "tag": "ROOT" } -> { "text": "bay", "tag": "FLIGHT-V" })
+ARRIVE-CASE({ "text": "Huế", "tag": "CITYNAME-N" } -> { "text": "đến", "tag": "ARRIVE-P" })
+DOBJ({ "text": "bay", "tag": "FLIGHT-V" } -> { "text": "Huế", "tag": "CITYNAME-N" })
+PUNCT({ "text": "bay", "tag": "FLIGHT-V" } -> { "text": "?", "tag": "Q-PUNCT" })
+
+Grammatical relation: 
+(s1 QUERY FLIGHT)
+(s1 PRED Bay)
+(s1 LSUBJ Máy_bay)
+(s1 TO-LOC (NAME Huế))
+
+Logical form: (QUERY ?f1) (TGT-FLIGHT ?f1 (TO-LOC (NAME h1 Huế)))
+
+Procedural semantic form: (QUERY f1) (& (FLIGHT f1 b1) (ATIME f1 HUE t1))
+
+SQL query: SELECT ARRIVES.ID FROM ARRIVES WHERE ARRIVES.CITY = "HUE";
+
+Final result: ['VN1', 'VJ1']

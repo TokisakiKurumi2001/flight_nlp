@@ -1,0 +1,33 @@
+Query: Máy bay VN4 có xuất phát từ Đà Nẵng không ?.
+
+Tokenizer output: ['Máy_bay', 'VN4', 'có', 'xuất_phát', 'từ', 'Đà_Nẵng', 'không', '?', '']
+
+Sequence tagger output: 
+{ "text": "Máy_bay", "tag": "FLIGHT-N" }
+{ "text": "VN4", "tag": "FLIGHTNAME-N" }
+{ "text": "bay", "tag": "FLIGHT-V" }
+{ "text": "từ", "tag": "DEPART-P" }
+{ "text": "Đà_Nẵng", "tag": "CITYNAME-N" }
+{ "text": "?", "tag": "Q-PUNCT" }
+
+Malt parser output: 
+FLIGHTNAME-NMOD({ "text": "Máy_bay", "tag": "FLIGHT-N" } -> { "text": "VN4", "tag": "FLIGHTNAME-N" })
+NSUBJ({ "text": "bay", "tag": "FLIGHT-V" } -> { "text": "Máy_bay", "tag": "FLIGHT-N" })
+ROOT({ "text": "root", "tag": "ROOT" } -> { "text": "bay", "tag": "FLIGHT-V" })
+DEPART-CASE({ "text": "Đà_Nẵng", "tag": "CITYNAME-N" } -> { "text": "từ", "tag": "DEPART-P" })
+DOBJ({ "text": "bay", "tag": "FLIGHT-V" } -> { "text": "Đà_Nẵng", "tag": "CITYNAME-N" })
+PUNCT({ "text": "bay", "tag": "FLIGHT-V" } -> { "text": "?", "tag": "Q-PUNCT" })
+
+Grammatical relation: 
+(s1 QUERY VERIFY)
+(s1 PRED Bay)
+(s1 LSUBJ (NAME VN4))
+(s1 FROM-LOC (NAME Đà_Nẵng))
+
+Logical form: (CHECK) (SRC-FLIGHT (NAME VN4) (FROM-LOC (NAME d1 Đà_Nẵng)))
+
+Procedural semantic form: (CHECK) (& (FLIGHT VN4 b1) (DTIME VN4 DN t1))
+
+SQL query: SELECT * FROM DEPARTS WHERE DEPARTS.ID = "VN4" AND DEPARTS.CITY = "DN";
+
+Final result: ['NO']
