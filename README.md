@@ -57,3 +57,10 @@ Final results: {result/answer for the natural query}
   - `logical_form.py`: main class: `LogicalForm`: transforms the grammatical relation in to the logical form.
   - `proc_sem.py`: main class: `ProceduralSem`: transforms the logical form into the procedural semantic form that match with the design of the database
   - `dbengine.py`: main class: `QueryTransform` & `QueryDB`. `QueryTransform` converts procedural semantic form into SQL query and the `QueryDB` will take the database and the SQL query to get the result.
+
+## Information
+The courses are taught by Ms.Tuoi (pttuoi@gmail.com) and the assignment is graded by Ms.Thuy (thuytin76@gmail.com). 
+
+Have learned a very valuable lesson here that remember to attach all the files within the zip file. I, unfortunately, forgot to put the `main.py` file inside the zip file and receive the score of 3.5 (although later the penalty has been removed and I received the score 5.5). I really want to discuss more about the knowledge within this assignment but was never given a chance. Education here, by my interpretation, is to fit the mind of the students according to the knowledge of teacher (much like fitting the model, ironically).
+
+I hope that I will not make this type of mistake and wish the best of luck for everyone who have read this far.
